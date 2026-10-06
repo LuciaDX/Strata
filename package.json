@@ -1,0 +1,19 @@
+{
+  "name": "strata",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "strata": "node packages/cli/src/main.js",
+    "workbench": "npm run dev --workspace @strata/workbench",
+    "build": "npm run build --workspace @strata/workbench",
+    "package": "npm run package --workspace @strata/workbench"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

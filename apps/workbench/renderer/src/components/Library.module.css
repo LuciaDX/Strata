@@ -1,0 +1,264 @@
+.library {
+  position: absolute;
+  top: calc(var(--topbar-height) + var(--gutter) * 2);
+  left: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: var(--side-width);
+  --squircle-bg: var(--glass-bg);
+  --squircle-blur: var(--glass-blur);
+  --squircle-shadow: rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.8s var(--ease-out-expo) 120ms backwards;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 14px 8px;
+}
+
+.heading {
+  padding: 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-display);
+  color: var(--text-strong);
+}
+
+.searchField {
+  flex: none;
+}
+
+.search {
+  height: 38px;
+  padding: 0 16px 0 38px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  z-index: 1;
+  translate: 0 -50%;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.searchField:focus-within .searchIcon {
+  color: var(--text-muted);
+}
+
+.search::placeholder {
+  color: var(--text-faint);
+}
+
+.groups {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px 14px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 14px;
+}
+
+.label {
+  margin: 0 0 4px;
+  padding: 0 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  cursor: grab;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, translate 0.2s var(--ease-out-back);
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: var(--glass-shadow-soft);
+  translate: 2px 0;
+}
+
+.item:active {
+  cursor: grabbing;
+}
+
+.itemTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-body);
+}
+
+.item:hover .itemTitle {
+  color: var(--text-strong);
+}
+
+.itemMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.itemIcon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.item:hover .itemIcon {
+  color: var(--color-brand-soft);
+  background: var(--color-brand-tint);
+}
+
+.itemPorts {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.empty {
+  margin: 16px 10px;
+  color: var(--text-faint);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0 10px 10px;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 11.5px;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--text-faint);
+  background: none;
+  border: none;
+  --squircle-bg: rgba(255, 255, 255, 0.03);
+  transition: color 0.15s ease;
+}
+
+.footer:hover {
+  color: var(--text-muted);
+  --squircle-bg: rgba(255, 255, 255, 0.06);
+}
+
+.footer > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer b {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.footer:hover b {
+  color: #ffffff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    translate: -16px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .library {
+    animation: none;
+  }
+}
+
+.tipBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.tipTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.tipText {
+  color: var(--text-muted);
+}
+
+.tipPorts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.tipLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.tipPort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-body);
+}
+
+.tipHint {
+  padding-top: 6px;
+  border-top: 1px solid var(--color-hair);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.groupTag {
+  margin-left: -2px;
+  padding: 2px 7px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  vertical-align: 2px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-pill);
+}

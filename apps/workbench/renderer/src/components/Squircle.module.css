@@ -1,0 +1,72 @@
+:where(.squircle) {
+  --squircle-bg: transparent;
+  --squircle-blur: none;
+  --squircle-inner: none;
+  --squircle-border: transparent;
+  --squircle-ring: transparent;
+  --squircle-shadow: transparent;
+  --squircle-shadow-blur: 22px;
+  --squircle-shadow-y: 14px;
+  --squircle-dash: none;
+  position: relative;
+}
+
+.squircle {
+  isolation: isolate;
+}
+
+.shadow,
+.back,
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.shadow {
+  z-index: -1;
+  filter: blur(var(--squircle-shadow-blur));
+  translate: 0 var(--squircle-shadow-y);
+  scale: 0.96;
+}
+
+.shadow path {
+  fill: var(--squircle-shadow);
+  transition: fill 0.25s ease;
+}
+
+.back {
+  z-index: -1;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--squircle-ring);
+  stroke-width: 9;
+  transition: stroke 0.25s ease;
+}
+
+.surface {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--squircle-bg);
+  backdrop-filter: var(--squircle-blur);
+  box-shadow: var(--squircle-inner);
+  pointer-events: none;
+}
+
+.highlight {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.border {
+  fill: none;
+  stroke: var(--squircle-border);
+  stroke-width: 2;
+  stroke-dasharray: var(--squircle-dash);
+  transition: stroke 0.2s ease;
+}

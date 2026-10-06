@@ -1,0 +1,258 @@
+{
+  "format": "strata-group",
+  "type": "obfuscate",
+  "title": "Obfuscate",
+  "icon": "incognito",
+  "category": "Processing",
+  "description": "Hashes identifiers, names and paths, leaving alone everything the connected exclusions list. Open it to choose which rules run",
+  "renamedPorts": {
+    "references": "exclusions",
+    "translations": "mappings"
+  },
+  "legacyParams": {
+    "trashPaths": "paths.trash",
+    "trashMinDepth": "paths.trashMinDepth",
+    "trashMaxDepth": "paths.trashMaxDepth"
+  },
+  "inputs": {
+    "pack": "pack",
+    "exclusions": {
+      "type": "exclusions",
+      "multiple": true,
+      "optional": true
+    },
+    "key": "key"
+  },
+  "outputs": {
+    "pack": "pack",
+    "mappings": "mappings"
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "type": "group.input",
+      "params": {},
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "obfuscator",
+      "type": "obfuscator",
+      "params": {},
+      "position": {
+        "x": 1040,
+        "y": 0
+      }
+    },
+    {
+      "id": "output",
+      "type": "group.output",
+      "params": {},
+      "position": {
+        "x": 1400,
+        "y": 0
+      }
+    },
+    {
+      "id": "hash",
+      "type": "obfuscate.hash",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 200
+      }
+    },
+    {
+      "id": "paths",
+      "type": "obfuscate.paths",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 328
+      }
+    },
+    {
+      "id": "entities",
+      "type": "obfuscate.entities",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 456
+      }
+    },
+    {
+      "id": "animations",
+      "type": "obfuscate.animations",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 584
+      }
+    },
+    {
+      "id": "models",
+      "type": "obfuscate.models",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 712
+      }
+    },
+    {
+      "id": "renderControllers",
+      "type": "obfuscate.render_controllers",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 840
+      }
+    },
+    {
+      "id": "shortNames",
+      "type": "obfuscate.short_names",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 968
+      }
+    },
+    {
+      "id": "materials",
+      "type": "obfuscate.materials",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1096
+      }
+    },
+    {
+      "id": "particles",
+      "type": "obfuscate.particles",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1224
+      }
+    },
+    {
+      "id": "sounds",
+      "type": "obfuscate.sounds",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1352
+      }
+    },
+    {
+      "id": "textures",
+      "type": "obfuscate.textures",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1480
+      }
+    },
+    {
+      "id": "ui",
+      "type": "obfuscate.ui",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1608
+      }
+    },
+    {
+      "id": "world",
+      "type": "obfuscate.world",
+      "params": {},
+      "position": {
+        "x": 600,
+        "y": 1736
+      }
+    }
+  ],
+  "links": [
+    {
+      "from": "input.then",
+      "to": "obfuscator.exec"
+    },
+    {
+      "from": "obfuscator.then",
+      "to": "output.exec"
+    },
+    {
+      "from": "input.pack",
+      "to": "obfuscator.pack"
+    },
+    {
+      "from": "input.exclusions",
+      "to": "obfuscator.exclusions"
+    },
+    {
+      "from": "input.key",
+      "to": "obfuscator.key"
+    },
+    {
+      "from": "obfuscator.pack",
+      "to": "output.pack"
+    },
+    {
+      "from": "obfuscator.mappings",
+      "to": "output.mappings"
+    },
+    {
+      "from": "hash.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "paths.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "entities.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "animations.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "models.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "renderControllers.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "shortNames.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "materials.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "particles.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "sounds.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "textures.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "ui.rule",
+      "to": "obfuscator.rules"
+    },
+    {
+      "from": "world.rule",
+      "to": "obfuscator.rules"
+    }
+  ]
+}

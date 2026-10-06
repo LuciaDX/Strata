@@ -1,0 +1,22 @@
+{
+  "plugins": ["plugins"],
+  "nodes": [
+    { "id": "source", "type": "source.folder", "params": { "path": "my-pack" } },
+    { "id": "languages", "type": "example.keep-languages", "params": { "languages": ["en_US", "ru_RU"] } },
+    { "id": "vanilla", "type": "exclusions.file", "params": { "path": "vanilla.exclusions.json" } },
+    { "id": "keep", "type": "exclusions.keep", "params": { "names": ["geyser_custom:*", "textures/ui/shared/*"] } },
+    { "id": "hashKey", "type": "key", "params": { "mode": "text", "key": "change-me" } },
+    { "id": "obfuscate", "type": "obfuscate", "params": {} },
+    { "id": "write", "type": "output.folder", "params": { "path": "out/protected" } },
+    { "id": "mappings", "type": "output.mappings", "params": { "path": "out/mappings.json" } }
+  ],
+  "links": [
+    { "from": "source.pack", "to": "languages.pack" },
+    { "from": "languages.pack", "to": "obfuscate.pack" },
+    { "from": "vanilla.exclusions", "to": "obfuscate.exclusions" },
+    { "from": "keep.exclusions", "to": "obfuscate.exclusions" },
+    { "from": "obfuscate.pack", "to": "write.pack" },
+    { "from": "obfuscate.mappings", "to": "mappings.mappings" },
+    { "from": "hashKey.key", "to": "obfuscate.key" }
+  ]
+}

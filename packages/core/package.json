@@ -1,0 +1,13 @@
+{
+  "name": "@strata/core",
+  "version": "0.1.0",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./paths": "./src/paths.js"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.3.1"
+  }
+}

@@ -1,0 +1,45 @@
+.app {
+  --log-space: 58px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logOpen {
+  --log-space: 272px;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--topbar-height) + var(--gutter) * 2) calc(var(--inspector-width) + var(--gutter) * 2) calc(var(--gutter) + var(--log-space)) calc(var(--side-width) + var(--gutter) * 2);
+  z-index: 5;
+  border: 1.5px dashed var(--color-brand);
+  border-radius: var(--radius-panel);
+  background: radial-gradient(60% 60% at 50% 50%, var(--color-brand-tint), transparent);
+  opacity: 0;
+  scale: 0.985;
+  pointer-events: none;
+  transition: opacity 0.2s ease, scale 0.35s var(--ease-out-expo);
+}
+
+.canvasTarget::after {
+  opacity: 0.6;
+  scale: 1;
+}
+
+.cutArmed :global(.react-flow__pane),
+.cutArmed :global(.react-flow__edge) {
+  cursor: crosshair;
+}
+
+.booting :global(*),
+.booting :global(*)::before,
+.booting :global(*)::after {
+  animation-play-state: paused !important;
+}

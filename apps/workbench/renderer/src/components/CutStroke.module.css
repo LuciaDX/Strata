@@ -1,0 +1,68 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.glow,
+.line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.glow {
+  stroke: var(--error-fg);
+  stroke-width: 10;
+  opacity: 0.12;
+}
+
+.line {
+  stroke: var(--error-fg);
+  stroke-width: 3;
+  stroke-dasharray: 0.1 8;
+}
+
+.anchor {
+  fill: var(--color-canvas);
+  stroke: var(--error-fg);
+  stroke-width: 2;
+}
+
+.tip {
+  fill: var(--error-fg);
+  filter: drop-shadow(0 0 6px var(--error-fg));
+}
+
+.badge {
+  position: absolute;
+  translate: 14px -34px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--error-fg);
+  white-space: nowrap;
+  background: rgba(31, 29, 29, 0.85);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-shadow-soft), 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+  animation: popIn 0.35s var(--ease-out-back);
+}
+
+@keyframes popIn {
+  from {
+    scale: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    animation: none;
+  }
+}

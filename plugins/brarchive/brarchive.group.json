@@ -1,0 +1,81 @@
+{
+  "format": "strata-group",
+  "type": "brarchive",
+  "title": "BrArchive",
+  "icon": "archive",
+  "category": "Processing",
+  "description": "Bundles every folder's JSON files into __brarchive files the way vanilla ships, then marks the manifest as optimized. Open it to change either step",
+  "legacyParams": {
+    "skip": "archive.skip"
+  },
+  "inputs": {
+    "pack": "pack"
+  },
+  "outputs": {
+    "pack": "pack"
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "type": "group.input",
+      "params": {},
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "archive",
+      "type": "brarchive.folders",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 0
+      }
+    },
+    {
+      "id": "optimized",
+      "type": "manifest.optimized",
+      "params": {},
+      "position": {
+        "x": 680,
+        "y": 0
+      }
+    },
+    {
+      "id": "output",
+      "type": "group.output",
+      "params": {},
+      "position": {
+        "x": 1020,
+        "y": 0
+      }
+    }
+  ],
+  "links": [
+    {
+      "from": "input.then",
+      "to": "archive.exec"
+    },
+    {
+      "from": "archive.then",
+      "to": "optimized.exec"
+    },
+    {
+      "from": "optimized.then",
+      "to": "output.exec"
+    },
+    {
+      "from": "input.pack",
+      "to": "archive.pack"
+    },
+    {
+      "from": "archive.pack",
+      "to": "optimized.pack"
+    },
+    {
+      "from": "optimized.pack",
+      "to": "output.pack"
+    }
+  ]
+}

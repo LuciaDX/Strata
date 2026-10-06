@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Onest";
+  src: url("../assets/fonts/Onest.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --color-canvas: #151414;
+  --color-shell: #1c1b1b;
+  --color-surface: #1f1e1e;
+  --color-elevated: #2c2a2a;
+  --color-hover: rgba(255, 255, 255, 0.06);
+  --color-hair: rgba(255, 255, 255, 0.08);
+  --color-hair-strong: rgba(255, 255, 255, 0.14);
+  --color-dot: #3a3434;
+  --color-field: rgba(0, 0, 0, 0.28);
+  --color-glass-button: rgba(170, 160, 160, 0.14);
+  --color-glass-button-hover: rgba(170, 160, 160, 0.22);
+
+  --color-brand: #f0384b;
+  --color-brand-bright: #ff5266;
+  --color-brand-soft: #ffa1ab;
+  --color-brand-tint: rgba(240, 56, 75, 0.16);
+  --color-brand-glow: rgba(240, 56, 75, 0.34);
+  --color-accent: #28ecff;
+
+  --text-strong: #ffffff;
+  --text-body: rgba(255, 255, 255, 0.86);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.4);
+
+  --success-fg: #4ade80;
+  --success-bg: rgba(50, 198, 101, 0.12);
+  --success-border: rgba(50, 198, 101, 0.4);
+  --pending-fg: #ffb27d;
+  --pending-bg: rgba(255, 141, 100, 0.12);
+  --pending-border: rgba(255, 141, 100, 0.4);
+  --processing-fg: #6ba5ff;
+  --processing-bg: rgba(58, 133, 255, 0.12);
+  --processing-border: rgba(58, 133, 255, 0.4);
+  --error-fg: #ff6b6b;
+  --error-bg: rgba(243, 69, 69, 0.12);
+  --error-border: rgba(243, 69, 69, 0.4);
+
+  --port-pack: #ff5266;
+  --port-exclusions: #2dd4bf;
+  --port-mappings: #fab718;
+  --port-key: #b48cff;
+  --port-rule: #7dd3fc;
+  --port-files: #a3e635;
+  --port-exec: #f4f2f2;
+  --port-any: #9a999e;
+
+  --radius-panel: 28px;
+  --radius-node: 22px;
+  --radius-card: 16px;
+  --radius-control: 12px;
+  --radius-tag: 8px;
+  --radius-pill: 999px;
+
+  --font-ui: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Mono", ui-monospace, Consolas, monospace;
+
+  --tracking-tight: -0.3px;
+  --tracking-title: -0.6px;
+  --tracking-display: -1.2px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --switcher-transition: 0.25s cubic-bezier(1, 0, 0.4, 1);
+
+  --glass-bg: rgba(31, 29, 29, 0.5);
+  --glass-blur: blur(24px) saturate(150%);
+  --glass-shadow:
+    0 18px 48px -12px rgba(0, 0, 0, 0.6),
+    inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.16),
+    inset 2px 2px 0px -2px rgba(255, 255, 255, 0.22),
+    inset -2px -2px 2px -2px rgba(255, 255, 255, 0.12),
+    inset -1.8px -3px 0px -2px rgba(255, 255, 255, 0.08);
+  --glass-shadow-soft:
+    inset 1.5px 2px 0px -1.5px rgba(255, 255, 255, 0.1),
+    inset 1.8px 1.8px 0px -1.5px rgba(255, 255, 255, 0.12),
+    inset -1.8px -1.8px 1.5px -1.5px rgba(255, 255, 255, 0.06),
+    inset -1.5px -2px 0px -1.5px rgba(255, 255, 255, 0.04);
+  --inner-glow: inset 0 0 32px 4px rgba(255, 255, 255, 0.025);
+
+  --node-bg: linear-gradient(180deg, #2a2828 0%, #1c1b1b 100%);
+  --shadow-node: 0 24px 60px -20px rgba(0, 0, 0, 0.75), var(--inner-glow), var(--glass-shadow-soft);
+  --shadow-brand: 0 10px 30px -8px rgba(240, 56, 75, 0.55);
+  --shadow-pop: 0 18px 48px -12px rgba(0, 0, 0, 0.6);
+
+  --node-width: 260px;
+  --gutter: 12px;
+  --topbar-height: 56px;
+  --side-width: 260px;
+  --inspector-width: 320px;
+}

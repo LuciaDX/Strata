@@ -1,0 +1,147 @@
+{
+  "format": "strata-group",
+  "type": "encrypt",
+  "title": "Encrypt",
+  "icon": "lock",
+  "category": "Processing",
+  "description": "Encrypts pack files with AES-256-CFB8 and writes the encrypted contents.json the game expects. Open it to choose which files are encrypted. Save the same key with Write Key for the server",
+  "legacyParams": {
+    "skip": "readable.patterns"
+  },
+  "inputs": {
+    "pack": "pack",
+    "key": "key"
+  },
+  "outputs": {
+    "pack": "pack"
+  },
+  "nodes": [
+    {
+      "id": "input",
+      "type": "group.input",
+      "params": {},
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "encrypt",
+      "type": "encrypt.files",
+      "params": {},
+      "position": {
+        "x": 700,
+        "y": 0
+      }
+    },
+    {
+      "id": "output",
+      "type": "group.output",
+      "params": {},
+      "position": {
+        "x": 1040,
+        "y": 0
+      }
+    },
+    {
+      "id": "images",
+      "type": "encrypt.images",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 200
+      }
+    },
+    {
+      "id": "json",
+      "type": "encrypt.json",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 328
+      }
+    },
+    {
+      "id": "sounds",
+      "type": "encrypt.sounds",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 456
+      }
+    },
+    {
+      "id": "text",
+      "type": "encrypt.text",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 584
+      }
+    },
+    {
+      "id": "other",
+      "type": "encrypt.other",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 712
+      }
+    },
+    {
+      "id": "readable",
+      "type": "encrypt.readable",
+      "params": {},
+      "position": {
+        "x": 340,
+        "y": 840
+      }
+    }
+  ],
+  "links": [
+    {
+      "from": "input.then",
+      "to": "encrypt.exec"
+    },
+    {
+      "from": "encrypt.then",
+      "to": "output.exec"
+    },
+    {
+      "from": "input.pack",
+      "to": "encrypt.pack"
+    },
+    {
+      "from": "input.key",
+      "to": "encrypt.key"
+    },
+    {
+      "from": "encrypt.pack",
+      "to": "output.pack"
+    },
+    {
+      "from": "images.files",
+      "to": "encrypt.files"
+    },
+    {
+      "from": "json.files",
+      "to": "encrypt.files"
+    },
+    {
+      "from": "sounds.files",
+      "to": "encrypt.files"
+    },
+    {
+      "from": "text.files",
+      "to": "encrypt.files"
+    },
+    {
+      "from": "other.files",
+      "to": "encrypt.files"
+    },
+    {
+      "from": "readable.files",
+      "to": "encrypt.files"
+    }
+  ]
+}

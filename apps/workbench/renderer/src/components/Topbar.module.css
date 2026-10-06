@@ -1,0 +1,227 @@
+.bar {
+  position: absolute;
+  top: var(--gutter);
+  left: var(--gutter);
+  right: var(--gutter);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topbar-height);
+  padding: 0 10px 0 22px;
+  --squircle-bg: var(--glass-bg);
+  --squircle-blur: var(--glass-blur);
+  --squircle-shadow: rgba(0, 0, 0, 0.5);
+  animation: dropIn 0.8s var(--ease-out-expo) backwards;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.left {
+  gap: 14px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-display);
+  color: var(--text-strong);
+}
+
+.mark {
+  flex-shrink: 0;
+}
+
+.file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-shadow-soft);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.file:not(:disabled):hover {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.file:disabled {
+  cursor: default;
+}
+
+.trail {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  animation: crumbIn 0.4s var(--ease-out-expo);
+}
+
+.chevron {
+  color: var(--text-faint);
+}
+
+.current {
+  color: var(--text-strong);
+  background: var(--color-brand-tint);
+}
+
+@keyframes crumbIn {
+  from {
+    opacity: 0;
+    translate: -6px 0;
+  }
+}
+
+.dirty {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pending-fg);
+  box-shadow: 0 0 8px var(--pending-fg);
+  animation: popIn 0.4s var(--ease-out-back);
+}
+
+.history {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.icon:hover:not(:disabled) {
+  color: var(--text-strong);
+  background: var(--color-hover);
+}
+
+.icon:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  margin: 0 6px;
+  background: var(--color-hair-strong);
+}
+
+.ghost,
+.glass,
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-title);
+  border: none;
+  border-radius: var(--radius-pill);
+  transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ghost {
+  color: var(--text-muted);
+  background: none;
+}
+
+.ghost:hover {
+  color: var(--text-strong);
+  background: var(--color-hover);
+}
+
+.glass {
+  color: var(--text-strong);
+  background: var(--color-glass-button);
+  box-shadow: var(--glass-shadow-soft);
+}
+
+.glass:hover:not(:disabled) {
+  background: var(--color-glass-button-hover);
+  transform: translateY(-1px);
+}
+
+.primary {
+  min-width: 88px;
+  padding: 0 22px;
+  color: #ffffff;
+  background: var(--color-brand);
+  box-shadow: var(--shadow-brand);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-brand-bright);
+  transform: translateY(-1px);
+}
+
+.stop {
+  color: var(--color-brand-soft);
+  background: var(--color-brand-tint);
+  box-shadow: inset 0 0 0 1.5px var(--color-brand);
+}
+
+.stop:hover:not(:disabled) {
+  color: #ffffff;
+  background: var(--color-brand);
+}
+
+.glass:disabled,
+.primary:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    translate: 0 -16px;
+  }
+}
+
+@keyframes popIn {
+  from {
+    scale: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .dirty {
+    animation: none;
+  }
+}

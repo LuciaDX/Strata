@@ -1,0 +1,55 @@
+.layer {
+  position: fixed;
+  z-index: 4000;
+  max-width: 280px;
+  pointer-events: none;
+}
+
+.tip {
+  --squircle-bg: #242121;
+  --squircle-shadow: rgba(0, 0, 0, 0.55);
+  --squircle-shadow-blur: 16px;
+  --squircle-shadow-y: 8px;
+  animation: tipIn 0.22s var(--ease-out-expo);
+}
+
+.content {
+  position: relative;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-body);
+}
+
+.top {
+  --tip-x: 0;
+  --tip-y: 4px;
+}
+
+.bottom {
+  --tip-x: 0;
+  --tip-y: -4px;
+}
+
+.left {
+  --tip-x: 4px;
+  --tip-y: 0;
+}
+
+.right {
+  --tip-x: -4px;
+  --tip-y: 0;
+}
+
+@keyframes tipIn {
+  from {
+    opacity: 0;
+    translate: var(--tip-x) var(--tip-y);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tip {
+    animation: none;
+  }
+}

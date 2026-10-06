@@ -1,0 +1,126 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  height: 38px;
+  padding: 0 16px 0 16px;
+  font-size: 13px;
+  line-height: 38px;
+  text-align: left;
+  color: var(--text-body);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  color: var(--text-faint);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: rotate 0.3s var(--ease-out-back), color 0.15s ease;
+}
+
+.trigger:hover .chevron {
+  color: var(--text-strong);
+}
+
+.chevronOpen {
+  rotate: 180deg;
+  color: var(--text-strong);
+}
+
+.layer {
+  position: fixed;
+  z-index: 3000;
+}
+
+.menu {
+  --squircle-bg: #242121;
+  --squircle-shadow: rgba(0, 0, 0, 0.55);
+  --squircle-shadow-blur: 18px;
+  --squircle-shadow-y: 10px;
+  transform-origin: top center;
+  animation: menuIn 0.28s var(--ease-out-expo);
+}
+
+.up {
+  transform-origin: bottom center;
+  animation-name: menuUp;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 34px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: var(--text-body);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.selected {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+.check {
+  flex-shrink: 0;
+  color: var(--color-brand-bright);
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    translate: 0 -6px;
+    scale: 0.97;
+  }
+}
+
+@keyframes menuUp {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+    scale: 0.97;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    animation: none;
+  }
+}

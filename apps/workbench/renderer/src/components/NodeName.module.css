@@ -1,0 +1,28 @@
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: text;
+  border-radius: 4px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.name:hover {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input {
+  min-width: 0;
+  max-width: 100%;
+  margin: -1px -4px;
+  padding: 1px 4px;
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--text-strong);
+  background: var(--color-field);
+  border: none;
+  border-radius: 4px;
+  outline: 1px solid var(--color-brand);
+  user-select: text;
+}

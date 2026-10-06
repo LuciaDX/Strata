@@ -1,0 +1,216 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-body);
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+img,
+svg {
+  -webkit-user-drag: none;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  caret-color: var(--color-brand-bright);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+:focus {
+  outline: none;
+}
+
+button:focus-visible,
+[role="switch"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-brand-glow);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(240, 56, 75, 0.45);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(240, 56, 75, 0.6);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(240, 56, 75, 0.72);
+}
+
+::-webkit-scrollbar-track {
+  margin: 14px 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-button {
+  display: none;
+  background: transparent;
+}
+
+.react-flow {
+  --xy-background-color: var(--color-canvas);
+  --xy-edge-stroke: var(--color-hair-strong);
+  --xy-edge-stroke-width: 2;
+  --xy-connectionline-stroke: var(--color-brand-bright);
+  --xy-connectionline-stroke-width: 2;
+  --xy-selection-background-color: var(--color-brand-tint);
+  --xy-selection-border: 1px solid var(--color-brand);
+  --xy-controls-button-background-color: transparent;
+  --xy-controls-button-background-color-hover: var(--color-hover);
+  --xy-controls-button-color: var(--text-body);
+  --xy-controls-button-color-hover: var(--text-strong);
+  --xy-controls-button-border-color: transparent;
+  --xy-attribution-background-color: transparent;
+}
+
+.react-flow__controls {
+  display: flex;
+  gap: 2px;
+  margin: 0 0 calc(var(--gutter) + var(--log-space)) calc(var(--side-width) + var(--gutter) * 2);
+  padding: 4px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-shadow);
+  transition: margin 0.45s var(--ease-out-expo);
+}
+
+.react-flow__controls-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.react-flow__controls-button svg {
+  max-width: 11px;
+  max-height: 11px;
+}
+
+.react-flow__selection {
+  border: 1px solid var(--color-brand);
+  border-radius: 14px;
+  background: var(--color-brand-tint);
+}
+
+.react-flow__nodesselection {
+  display: none;
+}
+
+.react-flow__edge-path {
+  transition: stroke-width 0.15s ease;
+}
+
+.react-flow__edge.strata-exec .react-flow__edge-path {
+  stroke-width: 2.5;
+}
+
+.react-flow__edge.strata-exec.selected .react-flow__edge-path,
+.react-flow__edge.strata-exec:hover .react-flow__edge-path {
+  stroke-width: 3.5;
+}
+
+.react-flow__edge {
+  animation: edgeIn 0.6s var(--ease-out-expo) 0.1s backwards;
+}
+
+@keyframes edgeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke-width: 3;
+}
+
+.react-flow__edge.strata-cut .react-flow__edge-path {
+  stroke: var(--error-fg) !important;
+  stroke-width: 3;
+  stroke-dasharray: 6 5;
+  animation: cutMarch 0.5s linear infinite;
+}
+
+@keyframes cutMarch {
+  to {
+    stroke-dashoffset: -11;
+  }
+}

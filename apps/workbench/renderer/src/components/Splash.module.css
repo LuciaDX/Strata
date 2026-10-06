@@ -1,0 +1,164 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--color-canvas);
+}
+
+.leaving {
+  animation: leave 0.7s var(--ease-out-expo) forwards;
+  pointer-events: none;
+}
+
+.field {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-dot) 1.1px, transparent 1.3px);
+  background-size: 31px 31px;
+  background-position: center;
+  mask-image: radial-gradient(circle at 50% 50%, #000000 0%, transparent var(--reach));
+  animation: reveal 1.6s var(--ease-out-expo) both;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 720px;
+  height: 520px;
+  translate: -50% -58%;
+  background: radial-gradient(closest-side, rgba(240, 56, 75, 0.22), transparent);
+  filter: blur(20px);
+  animation: glowIn 1.4s var(--ease-out-expo) 0.2s both, breathe 3.2s ease-in-out 1.6s infinite;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.mark {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 7px);
+  grid-auto-rows: 7px;
+  gap: 4px;
+}
+
+.dot {
+  border-radius: 50%;
+  background: var(--dot-color, var(--color-brand-bright));
+  opacity: var(--dot-opacity);
+  box-shadow: 0 0 10px rgba(255, 82, 102, 0.55);
+  animation:
+    dotIn 0.45s var(--ease-out-back) calc(150ms + var(--order) * 22ms) both,
+    shimmer 1.6s ease-in-out calc(900ms + var(--order) * 45ms) infinite;
+}
+
+.wordRow {
+  clip-path: inset(-0.2em -0.5em -0.25em);
+}
+
+.word {
+  display: block;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -2.4px;
+  color: var(--text-strong);
+  animation: riseIn 0.9s var(--ease-out-expo) 0.45s both;
+}
+
+.status {
+  min-height: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  animation: fadeUp 0.5s var(--ease-out-expo) 0.7s both;
+}
+
+@property --reach {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes reveal {
+  from {
+    --reach: 0%;
+    opacity: 0;
+  }
+  to {
+    --reach: 70%;
+    opacity: 1;
+  }
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    scale: 0.7;
+  }
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.7;
+    scale: 1.06;
+  }
+}
+
+@keyframes dotIn {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    translate: 0 140%;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+@keyframes leave {
+  to {
+    opacity: 0;
+    scale: 1.04;
+    filter: blur(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field,
+  .glow,
+  .dot,
+  .word,
+  .status {
+    animation: none;
+  }
+}
